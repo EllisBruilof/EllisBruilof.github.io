@@ -199,16 +199,14 @@
     }
   }
 </style>
-<!-- Invisible YouTube iframe -->
 <div id="yt-player" style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; z-index:-1;">
   <iframe id="youtube-iframe" width="1" height="1"
-    src="https://www.youtube.com/embed/piIYnTt7eGw?autoplay=1&mute=0&enablejsapi=1&playsinline=1"
+    src="https://www.youtube.com/embed/K6gZxq_NE48?autoplay=1&mute=1&enablejsapi=1&playsinline=1"
     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
   </iframe>
 </div>
 
 <script>
-  // Load YouTube IFrame Player API
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -238,14 +236,12 @@
     console.error('YouTube Player Error:', event.data);
   }
 
-  // Fallback: user interaction triggers play
   document.body.addEventListener('click', () => {
     if(player && player.playVideo) {
       player.playVideo();
     }
   }, { once: true });
 </script>
-
 <div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
 
 <script>
