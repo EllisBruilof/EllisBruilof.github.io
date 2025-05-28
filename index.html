@@ -200,32 +200,49 @@
   }
 </style>
 
-<audio id="bg-audio" src="https://ellisbruilof.github.io/kaas.mp3" preload="auto"></audio>
-
-<div id="interaction-overlay" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: 9999;
-  background: transparent;
-  touch-action: none;
-"></div>
+<div id="yt-player" style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; z-index:-1;">
+  <iframe id="youtube-iframe" width="1" height="1"
+    src="https://www.youtube.com/embed/EkHouVanKaasVideoID?autoplay=1&mute=0&enablejsapi=1&playsinline=1"
+    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+</div>
 
 <script>
-  const audio = document.getElementById('bg-audio');
-  const overlay = document.getElementById('interaction-overlay');
+  // Load YouTube IFrame Player API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  function playAudioOnScroll() {
-    audio.play().catch(e => console.log('Play prevented:', e));
-    // Remove listener and hide overlay after playing
-    window.removeEventListener('scroll', playAudioOnScroll);
-    overlay.style.display = 'none';
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-iframe', {
+      events: {
+        'onReady': onPlayerReady,
+        'onError': onPlayerError
+      }
+    });
   }
 
-  window.addEventListener('scroll', playAudioOnScroll, { once: true });
-  
-  // Also listen for touchstart for mobile devices
-  window.addEventListener('touchstart', playAudioOnScroll, { once: true });
+  function onPlayerReady(event) {
+    // Try autoplay after 2 seconds delay
+    setTimeout(() => {
+      event.target.playVideo().catch(e => {
+        console.log("Autoplay blocked, waiting for user interaction.");
+      });
+    }, 2000);
+  }
+
+  function onPlayerError(event) {
+    console.error('YouTube Player Error:', event.data);
+  }
+
+  // Fallback: user interaction triggers play
+  document.body.addEventListener('click', () => {
+    if(player && player.playVideo) {
+      player.playVideo();
+    }
+  }, { once: true });
 </script>
 
 <div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
