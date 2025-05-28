@@ -200,23 +200,7 @@
   }
 </style>
 
-<audio id="weddingSong" autoplay loop>
-  <source src="https://ellisbruilof.github.io/kaas.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  // Try to play the audio when the page loads
-  const audio = document.getElementById('weddingSong');
-  window.addEventListener('DOMContentLoaded', () => {
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log("Autoplay failed, will require user interaction");
-      });
-    }
-  });
-</script>
+<audio id="wedding-audio" src="https://ellisbruilof.github.io/kaas.mp3" type="audio/mpeg"></audio>
 
 <div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
 
@@ -243,7 +227,21 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // Autoplay workaround: trigger audio on first interaction
+  const audio = document.getElementById("wedding-audio");
+  function playAudio() {
+    audio.play().catch(e => console.log("Autoplay blocked until interaction"));
+    document.removeEventListener("click", playAudio);
+    document.removeEventListener("touchstart", playAudio);
+    document.removeEventListener("scroll", playAudio);
+  }
+
+  document.addEventListener("click", playAudio);
+  document.addEventListener("touchstart", playAudio);
+  document.addEventListener("scroll", playAudio);
 </script>
+
 </head>
 <body>
 
