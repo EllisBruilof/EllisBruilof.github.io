@@ -6,7 +6,7 @@
   <title>Ellis Bruilof</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
+ <style>
   body {
     font-family: 'Playfair Display', serif;
     background: linear-gradient(to bottom, #0c0c0c, #1c1c1c);
@@ -22,10 +22,11 @@
 
   .header {
     text-align: center;
-    padding: 16rem 2rem; /* Increased padding for larger photo */
+    padding: 22rem 2rem;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('10.jpg') center/cover no-repeat;
     color: white;
     width: 100%;
+    position: relative;
   }
   .header h1 {
     font-size: 2.5rem;
@@ -82,8 +83,11 @@
   #details-section p,
   #rsvp-section p {
     font-weight: normal;
-    font-size: 1.6rem;
-    line-height: 1.8;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    letter-spacing: 0.03em;
+    margin: 0 auto 2rem;
+    max-width: 800px;
   }
 
   #weddingCarousel {
@@ -160,10 +164,9 @@
     margin: 1rem 0;
   }
 
-  /* 📱 Responsive Fixes */
   @media (max-width: 768px) {
     .header {
-      padding: 10rem 1rem;
+      padding: 14rem 1rem;
     }
     .header h1 {
       font-size: 1.5rem;
@@ -195,44 +198,38 @@
       padding: 2rem 1rem;
     }
   }
+</style>
 
-/* 📱 Responsive Fixes */
-@media (max-width: 768px) {
-  .header {
-    padding: 6rem 1rem;
-  }
-  .header h1 {
-    font-size: 1.5rem;
-  }
-  .names h2 {
-    font-size: 4rem;
-  }
-  .names h4 {
-    font-size: 1.5rem;
-    margin-top: -0.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .names .ampersand {
-    font-size: 3rem;
-    margin: 0.5rem 0;
-  }
-  #invitation-text {
-    font-size: 1.2rem;
-  }
-  .location-section h2,
-  #program-section h2 {
-    font-size: 2rem;
-  }
-  #program-section ul {
-    font-size: 1.2rem;
-  }
-  .bible-verse {
-    font-size: 1.2rem;
-    padding: 2rem 1rem;
-  }
-}
+<audio autoplay loop hidden>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
 
-  </style>
+<div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
+
+<script>
+  const weddingDate = new Date("2025-10-11T00:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance < 0) {
+      countdownEl.innerHTML = "Ons is getroud! 💍";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `Nog ${days} dae, ${hours} uur, ${minutes} minute en ${seconds} sekondes tot ons groot dag!`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </head>
 <body>
 
