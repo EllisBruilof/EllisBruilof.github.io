@@ -65,7 +65,55 @@ section {
   text-align: center;
 }
 
-#details-section,
+  #details-section,
+  #rsvp-section {
+    background: linear-gradient(to bottom, #000814, #001f3f);
+    color: silver;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  #details-section h1,
+  #rsvp-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: royalblue;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+  }
+
+  #details-section p,
+  #rsvp-section p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    max-width: 800px;
+    margin: 1.2rem auto;
+    font-family: 'Playfair Display', serif;
+  }
+
+  #rsvp-section iframe {
+    margin-top: 4rem;
+    width: 100%;
+    max-width: 700px;
+    height: 969px;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    #details-section p,
+    #rsvp-section p {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      padding: 0 1rem;
+    }
+
+    #details-section h1,
+    #rsvp-section h2 {
+      font-size: 2rem;
+    }
+  }
 #rsvp-section {
   background: linear-gradient(to bottom, #000814, #001f3f);
   color: silver;
@@ -194,16 +242,16 @@ section {
       <h2>Naomi</h2>
       <h4>Barkhuizen</h4>
     </div>
-    <p>KOM DEEL IN ONS VREUGDE EN VIER SAAM FEES!</p>
+    <p>KOM GENIET ONS GROOT DAG SAAM ONS WAAR TWEE FAMILIES EEN WORD!</p>
   </div>
 
-  <section id="details-section">
-    <h1>ONS TROUE</h1>
-    <p>SEMI-FORMELE KLEREDRAG</p>
-    <p>KONTANTKROEG MET KAARTFASILITEITE</p>
-    <p>GEEN ALKOHOL VAN BUITE WORD OP DIE PERSEEL WORD TOEGELAAT NIE</p>
-    <p>INDIEN ENIGE GEVAL GEVIND WORD, VERLOOR ONS DIE DEPOSITO</p>
-  </section>
+ <section id="details-section">
+  <h1>ONS TROUE</h1>
+  <p>SEMI-FORMELE KLEREDRAG</p>
+  <p>KONTANTKROEG MET KAARTFASILITEITE</p>
+  <p>GEEN ALKOHOL VAN BUITE WORD OP DIE PERSEEL TOEGELAAT NIE</p>
+  <p>INDIEN ENIGE GEVAL GEVIND WORD, VERLOOR ONS DIE DEPOSITO</p>
+</section>
 
   <section id="program-section">
     <h2>WAT ONS BEPLAN</h2>
@@ -246,6 +294,7 @@ section {
     <p>KOM DEEL IN ONS VREUGDE, LAG EN LIEFDE TERWYL ONS DIE KNOOP DEURHAK</p>
     <p>11 OKTOBER 2025</p>
     <p>LIONS CREEK</p>
+    <p>MEYERTON</p>
   </section>
 
   <section class="location-section">
@@ -253,14 +302,13 @@ section {
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
-  <section id="rsvp-section">
-    <h2>RSVP</h2>
-    <p>RSVP ASSEBLIEF TEEN 27 JULIE 2025</p>
-    <p>AS JY NIE TEEN DIE TYD RSVP NIE, NEEM ONS AAN JY SAL DIT NIE KAN MAAK NIE</p>
-    <p>METGESELLE SLEGS PER UITNODIGING</p>
-    <p>KINDERS WELKOM</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQvUCuXWTfV-gtuThEFrKPBqije-Zcp-6oAesCxHqVEGrlAg/viewform?embedded=true" width="640" height="969">Laai tans…</iframe>
-  </section>
+<section id="rsvp-section">
+  <h2>RSVP</h2>
+  <p>RSVP ASSEBLIEF TEEN 27 JULIE 2025</p>
+  <p>AS JY NIE TEEN DIE TYD RSVP NIE, NEEM ONS AAN JY SAL DIT NIE KAN MAAK NIE</p>
+  <p>METGESELLE SLEGS PER UITNODIGING</p>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQvUCuXWTfV-gtuThEFrKPBqije-Zcp-6oAesCxHqVEGrlAg/viewform?embedded=true" allowfullscreen loading="lazy">Laai tans…</iframe>
+</section>
 
   <div class="bible-verse">
     <p>"WAT GOD DAN SAAMGEVOEG HET, MAG GEEN MENS SKEI NIE." MARKUS 10:9</p>
