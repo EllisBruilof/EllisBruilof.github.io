@@ -199,48 +199,22 @@
     }
   }
 </style>
-<div id="yt-player" style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; z-index:-1;">
-  <iframe id="youtube-iframe" width="1" height="1"
-    src="https://www.youtube.com/embed/cNGjD0VG4R8?autoplay=1&mute=1&enablejsapi=1&playsinline=1"
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-  </iframe>
-</div>
+<audio id="wedding-audio" src="https://ellisbruilof.github.io/kaas.mp3" type="audio/mpeg"></audio>
 
 <script>
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  const audio = document.getElementById("wedding-audio");
 
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('youtube-iframe', {
-      events: {
-        'onReady': onPlayerReady,
-        'onError': onPlayerError
-      }
+  function playAudioOnFirstInteraction() {
+    audio.play().catch(err => {
+      console.log("Audio play failed:", err);
     });
+    // Remove listeners after playing once
+    document.removeEventListener("click", playAudioOnFirstInteraction);
+    document.removeEventListener("touchstart", playAudioOnFirstInteraction);
   }
 
-  function onPlayerReady(event) {
-    setTimeout(() => {
-      try {
-        event.target.playVideo();
-      } catch (e) {
-        console.log("Autoplay blocked or error: ", e);
-      }
-    }, 2000);
-  }
-
-  function onPlayerError(event) {
-    console.error('YouTube Player Error:', event.data);
-  }
-
-  document.body.addEventListener('click', () => {
-    if(player && player.playVideo) {
-      player.playVideo();
-    }
-  }, { once: true });
+  document.addEventListener("click", playAudioOnFirstInteraction);
+  document.addEventListener("touchstart", playAudioOnFirstInteraction);
 </script>
 <div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
 
