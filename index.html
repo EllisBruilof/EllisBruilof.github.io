@@ -200,34 +200,32 @@
   }
 </style>
 
-<audio id="wedding-audio" src="https://ellisbruilof.github.io/kaas.mp3" preload="auto"></audio>
+<audio id="bg-audio" src="https://ellisbruilof.github.io/kaas.mp3" preload="auto"></audio>
 
-<button id="play-button" style="
+<div id="interaction-overlay" style="
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  border: none;
-  margin: 0;
-  padding: 0;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   z-index: 9999;
-  cursor: pointer;
-">
-  Play
-</button>
+  background: transparent;
+  touch-action: none;
+"></div>
 
 <script>
-  const audio = document.getElementById('wedding-audio');
-  const playButton = document.getElementById('play-button');
+  const audio = document.getElementById('bg-audio');
+  const overlay = document.getElementById('interaction-overlay');
 
-  playButton.addEventListener('click', () => {
-    audio.play().catch(() => {
-      // Handle play failure if needed
-    });
-    playButton.remove();
-  });
+  function playAudioOnScroll() {
+    audio.play().catch(e => console.log('Play prevented:', e));
+    // Remove listener and hide overlay after playing
+    window.removeEventListener('scroll', playAudioOnScroll);
+    overlay.style.display = 'none';
+  }
+
+  window.addEventListener('scroll', playAudioOnScroll, { once: true });
+  
+  // Also listen for touchstart for mobile devices
+  window.addEventListener('touchstart', playAudioOnScroll, { once: true });
 </script>
 
 <div id="countdown" style="text-align:center; font-size:2rem; padding:2rem; color:silver;"></div>
