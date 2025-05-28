@@ -199,10 +199,10 @@
     }
   }
 </style>
-
+<!-- Invisible YouTube iframe -->
 <div id="yt-player" style="position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; pointer-events:none; z-index:-1;">
   <iframe id="youtube-iframe" width="1" height="1"
-    src="https://www.youtube.com/embed/EkHouVanKaasVideoID?autoplay=1&mute=0&enablejsapi=1&playsinline=1"
+    src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=0&enablejsapi=1&playsinline=1"
     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
   </iframe>
 </div>
@@ -225,11 +225,12 @@
   }
 
   function onPlayerReady(event) {
-    // Try autoplay after 2 seconds delay
     setTimeout(() => {
-      event.target.playVideo().catch(e => {
-        console.log("Autoplay blocked, waiting for user interaction.");
-      });
+      try {
+        event.target.playVideo();
+      } catch (e) {
+        console.log("Autoplay blocked or error: ", e);
+      }
     }, 2000);
   }
 
