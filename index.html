@@ -25,7 +25,6 @@
     text-align: center;
     padding: 22rem 2rem;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('12.jpg') center/cover no-repeat;
-    background-size: contain;
     color: white;
     width: 100%;
     position: relative;
@@ -238,7 +237,7 @@
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-   countdownEl.innerHTML = `Nog ${days} dae, ${hours} uur, ${minutes} minute en ${seconds} sekondes tot ons groot dag!`;
+   countdownEl.innerHTML = `Nog ${days} dae, <br/>${hours} uur, <br/>${minutes} minute en <br/>${seconds} sekondes tot ons groot dag!`;
 
   }
 
