@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="af">
 <head>
   <meta charset="UTF-8">
@@ -6,8 +6,7 @@
   <title>Ellis Bruilof</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <style>
+<style>
   body {
     font-family: 'Playfair Display', serif;
     background: linear-gradient(to bottom, #0c0c0c, #1c1c1c);
@@ -19,12 +18,13 @@
     align-items: center;
     width: 100%;
     overflow-x: hidden;
+    letter-spacing: 0.05em; /* Increased letter spacing */
   }
 
   .header {
     text-align: center;
     padding: 22rem 2rem;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('12.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('10.jpg') center/cover no-repeat;
     color: white;
     width: 100%;
     position: relative;
@@ -57,7 +57,7 @@
   .names .ampersand {
     font-size: 4rem;
     margin: -1rem 0 1rem;
-    color: royalblue;
+    color: white; /* Changed to white */
     font-family: 'Playfair Display', serif;
   }
 
@@ -69,7 +69,7 @@
 
   #details-section,
   #rsvp-section {
-    background: linear-gradient(to bottom, #000814, #001f3f);
+    background: linear-gradient(to bottom, #001b33, #003366); /* Lighter blue backgrounds */
     color: silver;
   }
 
@@ -86,7 +86,7 @@
     font-weight: normal;
     font-size: 1.2rem;
     line-height: 2rem;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em; /* Increased letter spacing */
     margin: 0 auto 2rem;
     max-width: 800px;
   }
@@ -102,7 +102,7 @@
   }
 
   #invitation-text {
-    background: linear-gradient(to bottom, #002b5c, #001f3f);
+    background: linear-gradient(to bottom, #004080, #002244); /* Lighter blue */
     color: silver;
     font-size: 2rem;
     padding: 4rem 2rem;
@@ -118,18 +118,26 @@
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
-
-  .bible-verse {
-    background: black;
-    color: silver;
-    padding: 4rem 3rem;
-    font-style: italic;
-    font-size: 1.8rem;
-    text-align: center;
-  }
+  
+ .bible-verse {
+  background: linear-gradient(to bottom, #000000, #001f3f);
+  color: white;
+  padding: 4rem 3rem;
+  font-style: italic;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-align: center;
+  border-left: 4px solid royalblue;
+  border-right: 4px solid royalblue;
+  margin: 4rem auto;
+  max-width: 800px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
 
   .location-section {
-    background-color: #000814;
+    background-color: #001b33; /* Lighter blue */
     color: silver;
     padding: 6rem 3rem;
   }
@@ -200,6 +208,7 @@
     }
   }
 </style>
+
 <audio id="wedding-audio" src="https://ellisbruilof.github.io/perfect.mp3" type="audio/mpeg"></audio>
 
 <script>
@@ -267,30 +276,40 @@
   <p>INDIEN ENIGE GEVAL GEVIND WORD, VERLOOR ONS DIE DEPOSITO</p>
 </section>
 
-  <section id="program-section">
-    <h2>WAT ONS BEPLAN</h2>
-    <p>NIE NOODWENDIG HOE DIT GAAN GEBEUR NIE</p>
-    <ul>
-      <li><strong>14:00</strong> - Gaste Aankoms</li>
-      <li><strong>14:30</strong> - Seremonie</li>
-      <li><strong>15:30</strong> - Foto's en Verversings</li>
-      <li><strong>17:30</strong> - Ontvangs en Aandete</li>
-      <li><strong>19:00</strong> - Toasts en Speeches</li>
-      <li><strong>20:00</strong> - Eerste Dans</li>
-      <li><strong>20:30</strong> - Dansvloer Maak Oop</li>
-    </ul>
-  </section>
-
   <section id="weddingCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="4.jpg" class="d-block w-100" alt="Wedding Photo 1">
+        <img src="1.jpg" class="d-block w-100" alt="Wedding Photo 1">
       </div>
       <div class="carousel-item">
-        <img src="6.jpg" class="d-block w-100" alt="Wedding Photo 2">
+        <img src="2.jpg" class="d-block w-100" alt="Wedding Photo 2">
+      </div>
+      <div class="carousel-item">
+        <img src="3.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="4.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="5.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="6.jpg" class="d-block w-100" alt="Wedding Photo 3">
       </div>
       <div class="carousel-item">
         <img src="7.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="8.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="9.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="10.jpg" class="d-block w-100" alt="Wedding Photo 3">
+      </div>
+      <div class="carousel-item">
+        <img src="11.jpg" class="d-block w-100" alt="Wedding Photo 3">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#weddingCarousel" data-bs-slide="prev">
@@ -316,6 +335,10 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
+  <div class="bible-verse">
+    <p>"WAT GOD DAN SAAMGEVOEG HET, MAG GEEN MENS SKEI NIE." MARKUS 10:9</p>
+  </div>
+
 <section id="rsvp-section">
   <h2>RSVP</h2>
   <p>RSVP ASSEBLIEF TEEN 27 AUGUSTUS 2025</p>
@@ -324,10 +347,7 @@
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfQvUCuXWTfV-gtuThEFrKPBqije-Zcp-6oAesCxHqVEGrlAg/viewform?embedded=true" allowfullscreen loading="lazy">Laai tans…</iframe>
 </section>
 
-  <div class="bible-verse">
-    <p>"WAT GOD DAN SAAMGEVOEG HET, MAG GEEN MENS SKEI NIE." MARKUS 10:9</p>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+</body>More actions
 </html>
