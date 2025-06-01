@@ -19,6 +19,7 @@
     align-items: center;
     width: 100%;
     overflow-x: hidden;
+    letter-spacing: 0.05em; /* Increased letter spacing */
   }
 
   .header {
@@ -39,6 +40,7 @@
     margin-top: 3rem;
     font-family: 'Playfair Display', serif;
     line-height: 1.1;
+    letter-spacing: 0.05em;
   }
   .names h2 {
     font-size: 7rem;
@@ -57,7 +59,7 @@
   .names .ampersand {
     font-size: 4rem;
     margin: -1rem 0 1rem;
-    color: royalblue;
+    color: white;
     font-family: 'Playfair Display', serif;
   }
 
@@ -89,6 +91,7 @@
     letter-spacing: 0.03em;
     margin: 0 auto 2rem;
     max-width: 800px;
+    letter-spacing: 0.05em; /* Increased letter spacing */
   }
 
   #weddingCarousel {
@@ -119,14 +122,23 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
-  .bible-verse {
-    background: black;
-    color: silver;
-    padding: 4rem 3rem;
-    font-style: italic;
-    font-size: 1.8rem;
-    text-align: center;
-  }
+ .bible-verse {
+  background: linear-gradient(to bottom, #000000, #001f3f);
+  color: white;
+  padding: 4rem 3rem;
+  font-style: italic;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-align: center;
+  border-left: 4px solid royalblue;
+  border-right: 4px solid royalblue;
+  margin: 4rem auto;
+  max-width: 800px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
 
   .location-section {
     background-color: #000814;
@@ -237,7 +249,7 @@
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-   countdownEl.innerHTML = `Nog ${days} dae, <br/>${hours} uur, <br/>${minutes} minute en <br/>${seconds} sekondes tot ons groot dag!`;
+   countdownEl.innerHTML = `Nog ${days} dae, ${hours} uur, ${minutes} minute en ${seconds} sekondes tot ons groot dag!`;
 
   }
 
