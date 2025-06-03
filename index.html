@@ -211,6 +211,19 @@
       padding: 2rem 1rem;
     }
   }
+    #joinWhatsAppGroup {
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #joinWhatsAppGroup:hover {
+    background-color: #128C4A;
+  }
 </style>
 <audio id="wedding-audio" src="https://ellisbruilof.github.io/perfect.mp3" type="audio/mpeg"></audio>
 
@@ -339,6 +352,15 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
+<button id="joinWhatsAppGroup">Sluit aan by WhatsApp Groep</button>
+
+<script>
+document.getElementById('joinWhatsAppGroup').addEventListener('click', function() {
+    const groupInviteLink = "https://chat.whatsapp.com/XXXXXXXXXXXX"; // vervang met jou eie skakel
+    window.open(groupInviteLink, '_blank');
+});
+</script>
+  
   <div class="bible-verse">
     <p>And over all these virtues put on love, which binds them all together in perfect unity.” (Colossians 3:14)"</p>
   </div>
