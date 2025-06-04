@@ -358,15 +358,15 @@
 <section class="location-section">
   <h2>TROU VENUE</h2>
 
-  <div id="map-container" style="position:relative; width:600px; height:450px;">
-    <!-- Spinner shown while loading -->
+  <div id="map-container" style="position: relative;">
+    <!-- Spinner -->
     <div id="spinner" style="
-      position:absolute; 
-      top:50%; left:50%; 
+      position: absolute;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       font-size: 18px;
       color: #555;
-      ">
+    ">
       Loading map...
     </div>
 
@@ -376,21 +376,48 @@
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion's%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
       width="600"
       height="450"
-      style="border:0;"
+      style="border: 0;"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
+
+    <!-- Error message -->
+    <div id="error-message" style="
+      display: none;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: red;
+      font-size: 16px;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 8px;
+    ">
+      Kon nie kaart laai nie. Probeer asseblief weer.
+    </div>
   </div>
 </section>
 
 <script>
   const iframe = document.getElementById('map-frame');
   const spinner = document.getElementById('spinner');
+  const errorMsg = document.getElementById('error-message');
 
+  // Remove spinner once loaded
   iframe.onload = () => {
     spinner.style.display = 'none';
   };
+
+  // Show error if not loaded within 10 seconds
+  setTimeout(() => {
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    if (!iframeDoc || iframeDoc.body.innerHTML.length === 0) {
+      spinner.style.display = 'none';
+      errorMsg.style.display = 'block';
+    }
+  }, 10000); // 10 seconds timeout
 </script>
   
  <section id="share-photos-section" style="background: linear-gradient(to bottom, #000814, #001f3f); color: silver; padding: 6rem 3rem; text-align: center;">
