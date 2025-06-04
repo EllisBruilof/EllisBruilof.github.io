@@ -230,6 +230,7 @@
   .whatsapp-button:hover {
     background-color: #1ebe5d;
   }
+
 </style>
 <audio id="wedding-audio" src="https://ellisbruilof.github.io/perfect.mp3" type="audio/mpeg"></audio>
 
@@ -354,11 +355,68 @@
     <p>MEYERTON</p>
   </section>
 
-  <section class="location-section">
-    <h2>TROU VENUE</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion&#39;s%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </section>
+ <section class="location-section">
+  <h2>TROU VENUE</h2>  
+  <div id="map-container" style="position:relative; width:600px; height:450px;">
+    <!-- Spinner shown while loading -->
+    <div id="spinner" style="
+      position:absolute; 
+      top:50%; left:50%; 
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #555;
+      ">
+      Loading map...
+    </div>
+    
+    <!-- Google Maps iframe -->
+    <iframe
+      id="map-frame"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4389.203066788998!2d27.998241587306126!3d-26.613293620996373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e94f9943b763bef%3A0x32eff8bde866bc68!2sLion's%20Creek!5e1!3m2!1sen!2sza!4v1748439799165!5m2!1sen!2sza"
+      width="600"
+      height="450"
+      style="border:0; display:none;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    
+    <!-- Error message if map fails -->
+    <div id="map-error" style="
+      display:none; 
+      position:absolute; 
+      top:50%; left:50%; 
+      transform: translate(-50%, -50%);
+      color: red;
+      font-weight: bold;
+      font-size: 18px;
+      ">
+      Sorry, the map failed to load.
+    </div>
+  </div>
+</section>
 
+<script>
+  const iframe = document.getElementById('map-frame');
+  const spinner = document.getElementById('spinner');
+  const errorMsg = document.getElementById('map-error');
+
+  // Timeout for loading the iframe
+  const loadTimeout = setTimeout(() => {
+    spinner.style.display = 'none';
+    iframe.style.display = 'none';
+    errorMsg.style.display = 'block';
+  }, 10000); // 10 seconds timeout
+
+  // When iframe loads successfully
+  iframe.onload = () => {
+    clearTimeout(loadTimeout);
+    spinner.style.display = 'none';
+    iframe.style.display = 'block';
+    errorMsg.style.display = 'none';
+  };
+</script>
+  
  <section id="share-photos-section" style="background: linear-gradient(to bottom, #000814, #001f3f); color: silver; padding: 6rem 3rem; text-align: center;">
     <h2 style="font-family: 'Playfair Display', serif; font-weight: 700; color: royalblue; margin-bottom: 2rem;">Deel in die herinneringe!</h2>
     <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 2rem; line-height: 2rem; letter-spacing: 0.05em;">
